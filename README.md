@@ -4,6 +4,8 @@
 
 有一部分demo会需要登录账号什么的，我会将demo账号放在控制台中，也欢迎大家进行指正
 
+个人博客：www.xiaojunnan.cn
+
 
 
 ## 前提
@@ -14,14 +16,49 @@
 
 
 
-## Demo项目
+## 项目结构
+
+```markdown
+├── public
+│   └── favicon.ico               # 图标
+|   └── index.html                # 根
+├── src
+│   ├── App.tsx
+│   └── index.tsx
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json
+```
+
+
+
+## demo项目
 
 - [ ] Todo List
+  - 持久化存储
 - [ ] 数字滚动 - 时间
+- [ ] 瀑布流
+- [ ] 虚拟列表
+- [ ] 懒加载
+- [ ] Web Worker
+- [ ] 大文件上传
+- [ ] 类Github消息推送
+  - 单向推送消息的话，HTTP 就有这种功能，它就是 Server Send Event
+- [ ] 低代码编辑器
+- [ ] 类B站视频播放（速度特别快）
 
 
 
-## 账号项目
+## 要账号登录
 
 - [ ] 实时聊天
+  - socket.io
 - [ ] 共享画板
+  - socket.io
+- [ ] 网页web端实现对另一个设备的控制
+  - webrtc
+- [ ] 双端视频聊天
+- [ ] 屏幕共享
+
