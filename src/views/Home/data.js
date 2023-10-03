@@ -1,10 +1,19 @@
+/*
+ * @Author: XJN
+ * @Date: 2023-10-03 20:22:15
+ * @LastEditors: xiaojunnanya
+ * @LastEditTime: 2023-10-04 00:49:20
+ * @FilePath: \demo\src\views\Home\data.js
+ * @Description: 
+ * @前端实习生: 鲸落
+ */
 const dataNoLog = [
     {
       title: 'Todo List',
       url:"/todolist"
     },
     {
-      title: '数字滚动',
+      title: '数字时间滚动',
       url:"/numberScrolling"
     },
     {

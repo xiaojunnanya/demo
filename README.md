@@ -24,12 +24,21 @@
 │   └── favicon.ico               # 图标
 |   └── index.html                # 根
 ├── src
+│   ├── assets                    # 静态文件
+│   ├── components                # 组件
+│   ├── router                    # 路由
+│   ├── service                   # 前后端交互
+│   ├── store                     # 仓库
+│   ├── utils                     # 工具
+│   ├── views                     # 视图
 │   ├── App.tsx
-│   └── index.tsx
+│   ├── index.tsx
+│   └── react-app-env.d.ts
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
 ├── README.md
+├── pnpm-lock.yaml
 └── tsconfig.json
 ```
 
@@ -49,7 +58,7 @@
 
 - [ ] Todo List
   - 持久化存储
-- [ ] 数字滚动 - 时间
+- [ ] 数字时间滚动
 - [ ] 瀑布流
 - [ ] 虚拟列表
 - [ ] 懒加载

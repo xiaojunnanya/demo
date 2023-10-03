@@ -2,7 +2,16 @@
  * @Author: XJN
  * @Date: 2023-10-03 19:30:29
  * @LastEditors: xiaojunnanya
- * @LastEditTime: 2023-10-03 22:44:57
+ * @LastEditTime: 2023-10-04 00:36:30
+ * @FilePath: \demo\src\views\Home\index.tsx
+ * @Description: 
+ * @前端实习生: 鲸落
+ */
+/*
+ * @Author: XJN
+ * @Date: 2023-10-03 19:30:29
+ * @LastEditors: xiaojunnanya
+ * @LastEditTime: 2023-10-04 00:35:27
  * @FilePath: \demo\src\views\Home\index.tsx
  * @Description: 首页
  * @前端实习生: 鲸落
@@ -10,11 +19,12 @@
 import React, { memo } from 'react'
 import type { FC } from 'react'
 
-import { HomeStyle } from './style'
 import { Card, List, message, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
+import { HomeStyle } from './style'
 import { dataNoLog, dataLogin } from './data';
+import logo from '@/assets/images/1.jpg'
 
 
 const Home : FC = memo(() => {
@@ -55,7 +65,7 @@ const Home : FC = memo(() => {
 
       </div>
       <div className="right">
-        <img src="http://www.xiaojunnan.cn/img/logo.webp" alt="logo" />
+        <img src={logo} alt="logo" />
 
         <div className='user'>游客访问</div>
 
