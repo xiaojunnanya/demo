@@ -1,13 +1,29 @@
-import React from 'react';
+/*
+ * @Author: XJN
+ * @Date: 2023-10-03 12:34:30
+ * @LastEditors: xiaojunnanya
+ * @LastEditTime: 2023-10-03 20:14:56
+ * @FilePath: \demo\src\index.tsx
+ * @Description: 
+ * @前端实习生: 鲸落
+ */
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+
+import { BrowserRouter } from 'react-router-dom'
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
-    <App />
+    <BrowserRouter>
+      <Suspense fallback=''>
+        <App />
+      </Suspense>
+    </BrowserRouter>
 );
 
 
