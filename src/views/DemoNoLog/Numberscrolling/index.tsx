@@ -2,7 +2,7 @@
  * @Author: XJN
  * @Date: 2023-10-03 20:05:53
  * @LastEditors: xiaojunnanya
- * @LastEditTime: 2023-10-04 00:54:56
+ * @LastEditTime: 2023-10-04 01:08:26
  * @FilePath: \demo\src\views\DemoNoLog\Numberscrolling\index.tsx
  * @Description: 数字滚动
  * @前端实习生: 鲸落
@@ -21,7 +21,7 @@ const Numberscrolling : FC = memo(() => {
   useEffect(()=>{
     setInterval(()=>{
       setTime( Date.now().valueOf() )
-    }, 1000)
+    }, 500)
   },[ ])
 
   const timeStr: string = useMemo(()=>{
