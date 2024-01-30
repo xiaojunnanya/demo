@@ -2,7 +2,7 @@
  * @Author: XJN
  * @Date: 2023-10-03 19:48:44
  * @LastEditors: xiaojunnanya
- * @LastEditTime: 2023-10-03 21:11:53
+ * @LastEditTime: 2023-10-05 19:21:46
  * @FilePath: \demo\src\views\Home\style.ts
  * @Description: 
  * @前端实习生: 鲸落
@@ -55,8 +55,12 @@ export const HomeStyle = styled.div`
         }
 
         .ant-card-body{
-            cursor: pointer;
             text-align:center;
+            user-select: none;
+            
+            span{
+                cursor: pointer;
+            }
         }
         .ant-card-head-title{
             text-align:center;

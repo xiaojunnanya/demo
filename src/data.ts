@@ -2,16 +2,16 @@
  * @Author: XJN
  * @Date: 2023-10-03 20:22:15
  * @LastEditors: xiaojunnanya
- * @LastEditTime: 2023-10-04 00:49:20
- * @FilePath: \demo\src\views\Home\data.js
+ * @LastEditTime: 2024-01-30 09:26:55
+ * @FilePath: \demo\src\data.js
  * @Description: 
  * @前端实习生: 鲸落
  */
 const dataNoLog = [
-    {
-      title: 'Todo List',
-      url:"/todolist"
-    },
+    // {
+    //   title: 'Todo List',
+    //   url:"/todolist"
+    // },
     {
       title: '数字时间滚动',
       url:"/numberScrolling"
@@ -29,12 +29,13 @@ const dataNoLog = [
       url:"/"
     },
     {
-      title: 'Web Worker',
-      url:"/"
+      title: '大文件上传',
+      url:"/largefileupload"
     },
     {
-      title: '大文件上传',
-      url:"/"
+      title: '阿里文件上传',
+      // url:"/alfileupload",
+      url:"/",
     },
     {
       title: '类ChatGPT消息推送',
@@ -47,6 +48,10 @@ const dataNoLog = [
     {
       title: '类B站视频播放',
       url:"/"
+    },
+    {
+      title: 'Markded解析',
+      url:"/markded"
     },
 ];
 

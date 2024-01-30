@@ -2,16 +2,7 @@
  * @Author: XJN
  * @Date: 2023-10-03 19:30:29
  * @LastEditors: xiaojunnanya
- * @LastEditTime: 2023-10-04 00:36:30
- * @FilePath: \demo\src\views\Home\index.tsx
- * @Description: 
- * @前端实习生: 鲸落
- */
-/*
- * @Author: XJN
- * @Date: 2023-10-03 19:30:29
- * @LastEditors: xiaojunnanya
- * @LastEditTime: 2023-10-04 00:35:27
+ * @LastEditTime: 2023-10-05 09:28:43
  * @FilePath: \demo\src\views\Home\index.tsx
  * @Description: 首页
  * @前端实习生: 鲸落
@@ -23,7 +14,7 @@ import { Card, List, message, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import { HomeStyle } from './style'
-import { dataNoLog, dataLogin } from './data';
+import { dataNoLog, dataLogin } from '../../data';
 import logo from '@/assets/images/1.jpg'
 
 
@@ -31,12 +22,13 @@ const Home : FC = memo(() => {
 
   const [ messageApi, contextHolder ] = message.useMessage();
   const navigate = useNavigate()
-  function findDetail(e: string){
-    if(e !== '/'){
-      navigate(e)
+  function findDetail(url: string, isLogin: boolean = false){
+
+    if(url !== '/'){
+      navigate(url)
     }else{
       messageApi.destroy()
-      messageApi.info('项目还在完善中，敬请期待~~~');
+      messageApi.info(isLogin ? '该项目需要先登录才能体验哦~~~' : '项目还在完善中，敬请期待~~~');
     }
   }
 
@@ -49,7 +41,9 @@ const Home : FC = memo(() => {
 
         <List grid={{gutter: 16,xs: 1,sm: 2,md: 4,lg: 4,xl: 6,xxl: 3}} dataSource={dataNoLog} renderItem={(item) => (
             <List.Item>
-              <Card title={item.title} onClick={()=>findDetail(item.url)}>点击查看</Card>
+              <Card title={item.title}>
+                <span onClick={()=>findDetail(item.url)}>点击查看</span>
+              </Card>
             </List.Item>
         )}></List>
 
@@ -59,7 +53,9 @@ const Home : FC = memo(() => {
 
         <List grid={{gutter: 16,xs: 1,sm: 2,md: 4,lg: 4,xl: 6,xxl: 3}} dataSource={dataLogin} renderItem={(item) => (
             <List.Item>
-              <Card title={item.title} onClick={()=>findDetail(item.url)}>点击查看</Card>
+              <Card title={item.title}>
+                <span onClick={()=>findDetail(item.url, true)}>点击查看</span>
+              </Card>
             </List.Item>
         )}></List>
 
