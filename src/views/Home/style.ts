@@ -10,7 +10,10 @@ export const HomeStyled  = styled.div`
     
     .ant-card-body{
         text-align: center;
-        cursor: pointer;
+        
+        span{
+            cursor: pointer;
+        }
     }
 
 `
