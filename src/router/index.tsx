@@ -3,6 +3,7 @@ import { lazy } from 'react'
 
 const Home = lazy(() => import('../views/Home/index.tsx'))
 const Bilibanner = lazy(() => import('../views/pages/Bilibanner/index.tsx'))
+const Websharing = lazy(() => import('../views/pages/WebSharing/index.tsx'))
 
 const routes:RouteObject[] = [
     {
@@ -12,6 +13,10 @@ const routes:RouteObject[] = [
     {
         path:'/bilibanner',
         element: <Bilibanner />,
+    },
+    {
+        path:'/websharing',
+        element: <Websharing />,
     }
 ]
 
