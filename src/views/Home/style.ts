@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const HomeStyled  = styled.div`
+    margin: 20px;
+
     .ant-card-head{
         .ant-card-head-title{
             text-align: center;
