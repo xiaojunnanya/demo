@@ -34,7 +34,7 @@ export default memo(() => {
             
 
 
-            // 克隆dom添加会报错：index.tsx:67 Uncaught (in promise) Unable to find element in cloned iframe
+            // 克隆dom添加会报错：Uncaught (in promise) Unable to find element in cloned iframe
             // const newDom = domRef.current.cloneNode(true) as HTMLDivElement
             // const dom = document.createElement("div")
             // dom.innerHTML = `<div>作者：鲸落</div>`

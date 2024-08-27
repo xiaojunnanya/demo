@@ -7,4 +7,12 @@ export default [
         id: '/websharing',
         title: 'web端分享屏幕生成自定义海报',
     },
+    {
+        id: '/virtuallist',
+        title: '虚拟列表',
+    },
+    {
+        id:'/lowcodeEditor',
+        title:'简易低代码编辑器'
+    }
 ]
