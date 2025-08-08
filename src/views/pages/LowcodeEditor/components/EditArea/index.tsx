@@ -1,63 +1,84 @@
-import { createElement, memo, MouseEventHandler, useState } from 'react'
+import { createElement, MouseEventHandler, useState } from 'react'
 import { Component, useComponetsStore } from '../../store/components';
 import { useComponentConfigStore } from '../../store/component-config';
 import HoverMask from '../HoverMask';
+import SelectedMask from '../SelectedMask';
 
-export default memo(() => {
-  const {components} = useComponetsStore();
-  const { componentConfig } = useComponentConfigStore();
-  const [hoverComponentId, setHoverComponentId] = useState<number>(); // 鼠标悬停的组件id
+export default function EditArea() {
+    const { components, curComponentId, setCurComponentId} = useComponetsStore();
+    const { componentConfig } = useComponentConfigStore();
 
-  const handleMouseOver: MouseEventHandler = (e)  => {
-    const path = e.nativeEvent.composedPath();
+    function renderComponents(components: Component[]): React.ReactNode {
+        return components.map((component: Component) => {
+            const config = componentConfig?.[component.name]
 
-    for (let i = 0; i < path.length; i += 1) {
-        const ele = path[i] as HTMLElement;
+            if (!config?.component) {
+                return null;
+            }
+            
+            return createElement(
+                config.component,
+                {
+                    key: component.id,
+                    id: component.id,
+                    name: component.name,
+                    ...config.defaultProps,
+                    ...component.props,
+                },
+                renderComponents(component.children || [])
+            )
+        })
+    }
 
-        const componentId = ele.dataset?.componentId;
-        if (componentId) {
-            setHoverComponentId(+componentId);
-            return;
+    const [hoverComponentId, setHoverComponentId] = useState<number>();
+
+    const handleMouseOver: MouseEventHandler = (e)  => {
+        const path = e.nativeEvent.composedPath();
+
+        for (let i = 0; i < path.length; i += 1) {
+            const ele = path[i] as HTMLElement;
+
+            const componentId = ele.dataset?.componentId;
+            if (componentId) {
+                setHoverComponentId(+componentId);
+                return;
+            }
         }
     }
-}
+  
+    const handleClick: MouseEventHandler = (e) => {
+        const path = e.nativeEvent.composedPath();
 
+        for (let i = 0; i < path.length; i += 1) {
+            const ele = path[i] as HTMLElement;
 
-  function renderComponents(components: Component[]): React.ReactNode {
-    return components.map((component: Component) => {
-        const config = componentConfig?.[component.name]
-
-        if (!config?.component) {
-            return null;
+            const componentId = ele.dataset?.componentId;
+            if (componentId) {
+                setCurComponentId(+componentId);
+                return;
+            }
         }
-        
-        return createElement(
-            config.component,
-            {
-                key: component.id,
-                id:component.id,
-                name: component.name,
-                ...config.defaultProps,
-                ...component.props,
-            },
-            renderComponents(component.children || [])
-        )
-    })
-  }
+    }
 
-  return (
-    <div className='h-[100%] edit-area' onMouseOver={handleMouseOver}
-      onMouseLeave={() => setHoverComponentId(undefined)}
-    >
-      {hoverComponentId && (
-        <HoverMask
-          portalWrapperClassName='portal-wrapper'
-            containerClassName='edit-area'
-            componentId={hoverComponentId}
-        />
-    )}
-      {renderComponents(components)}
-      <div className="portal-wrapper"></div>
+    return <div className="h-[100%] edit-area" onMouseOver={handleMouseOver} onMouseLeave={() => {
+        setHoverComponentId(undefined);
+    }} onClick={handleClick}>
+        {renderComponents(components)}
+        
+        {hoverComponentId && hoverComponentId !== curComponentId && (
+            <HoverMask
+                portalWrapperClassName='portal-wrapper'
+                containerClassName='edit-area'
+                componentId={hoverComponentId}
+            />
+        )}
+        {curComponentId && (
+            <SelectedMask
+                portalWrapperClassName='portal-wrapper'
+                containerClassName='edit-area'
+                componentId={curComponentId}
+            />
+        )}
+        <div className="portal-wrapper"></div>
     </div>
-  )
-})
+}
